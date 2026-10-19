@@ -6,6 +6,7 @@ authors:
   - family-names: Wish
     given-names: Michael J.
     email: michaelj.wish@gmail.com
+doi: 10.5281/zenodo.23484598
 repository-code: "https://github.com/mike8685/retention-advantage-ratio"
 license: MIT
 version: "1.0.1"

@@ -1,8 +1,10 @@
 # The Retention Advantage Ratio
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23484598.svg)](https://doi.org/10.5281/zenodo.23484598)
+
 Code and manuscript for:
 
-> Wish, M. (2026). *The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency*. Preprint.
+> Wish, M. (2026). *The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency*. Preprint. https://doi.org/10.5281/zenodo.23484598
 
 ---
 
