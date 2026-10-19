@@ -9,14 +9,17 @@ authors:
 doi: 10.5281/zenodo.23484598
 repository-code: "https://github.com/mike8685/retention-advantage-ratio"
 license: MIT
-version: "1.0.1"
+version: "1.1.0"
 date-released: "2026-10-19"
 abstract: >-
   Code and manuscript for the retention advantage ratio R(t) = P_distributed(t) / P_blocked(t),
-  a time-indexed construct for reporting practice-distribution effects, derived analytically
-  from the published retention surface of Cepeda et al. (2008).
+  analyzed on the log scale. Under a power law of forgetting with a shared time scale, the
+  log-ratio separates exactly into an initial-strength term and a decay-rate term. The framework
+  is applied to the retention surface fitted by Cepeda et al. (2008), with model values compared
+  against data-implied values and a proposed reporting standard.
 keywords:
   - spacing effect
   - distributed practice
   - retention interval
   - desirable difficulties
+  - log response ratio

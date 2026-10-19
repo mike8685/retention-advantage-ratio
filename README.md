@@ -4,128 +4,84 @@
 
 Code and manuscript for:
 
-> Wish, M. (2026). *The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency*. Preprint. https://doi.org/10.5281/zenodo.23484598
+> Wish, M. J. (2026). *The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency* (Version 1.1) [Preprint]. Zenodo. https://doi.org/10.5281/zenodo.23484598
+
+Preprint, not peer reviewed. The PDF is `retention-advantage-ratio-preprint.pdf`.
 
 ---
 
 ## Overview
 
-This repository contains the complete, reproducible pipeline for the paper. All R(t) values are derived **analytically** from the published fitted parameters of Cepeda et al. (2008)—no data digitization, no raw data access required.
+The paper treats the ratio R(t) = P_distributed(t) / P_blocked(t) as a function of retention interval and analyzes it on the log scale. Under a power law of forgetting with a shared time scale, the log-ratio splits exactly into an initial-strength term (constant) and a decay-rate term that grows linearly in ln(1 + αt). The framework is applied to the retention surface fitted by Cepeda et al. (2008), including where that application fails.
+
+All model values are computed from the published parameters; no data are digitized.
 
 **Model source:** Cepeda, N. J., Vul, E., Rohrer, D., Wixted, J. T., & Pashler, H. (2008). Spacing effects in learning: A temporal ridgeline of optimal retention. *Psychological Science*, 19, 1095–1102. https://doi.org/10.1111/j.1467-9280.2008.02209.x
-
-**Published parameters used (Figure 4 of Cepeda et al., 2008):**
 
 | Parameter | Value | Role |
 |-----------|-------|------|
 | b | 0.011 | Shared temporal scaling |
-| p | 0.760 | Permastore asymptote |
-| a | 0.017 | Gap-strength decay |
-| c | 0.092 | Decay-rate curvature |
-| d | 3.453 | Optimal decay-rate gap (log scale) |
+| p | 0.760 | Asymptote of initial recall as gap grows |
+| a | 0.017 | Rate at which initial recall falls with gap |
+| c | 0.092 | Curvature of the decay-rate function |
+| d | 3.453 | Log-gap at which decay is slowest (gap ≈ 30.6 days) |
 
 ---
 
-## Repository Structure
+## Key results
+
+| Retention interval | Model R(t) | Data-implied R(t) |
+|---|---|---|
+| 7 days | 1.04 | 1.10 |
+| 35 days | 1.34 | 1.59 |
+| 70 days | 1.73 | 2.11 |
+| 350 days | 5.16 | 1.77 |
+
+Data-implied values come from the improvements Cepeda et al. (2008) report for the best tested gap (10%, 59%, 111%, 77%).
+
+**Caveat.** Model and data agree through 70 days. At 350 days the model ratio is about three times the data, because the model's massed-practice recall there is 0.036 and small errors in a near-floor denominator inflate the ratio. Long-delay model ratios are not empirical estimates.
+
+---
+
+## Repository structure
 
 ```
 .
-├── main_rebuilt.tex          # LaTeX manuscript (two-column journal format)
-├── generate_figures.py       # Generates all 4 figures (PDF output)
-├── compute_Rt_analytical.py  # Standalone R(t) computation with diagnostics
-├── test_model.py             # Smoke test: independent check of headline numbers
-├── requirements.txt          # Pinned Python dependencies
-├── CITATION.cff              # Citation metadata (used by Zenodo)
-├── LICENSE                   # MIT (code)
-└── README.md                 # This file
+├── main_rebuilt.tex                       # LaTeX manuscript
+├── retention-advantage-ratio-preprint.pdf # Compiled manuscript
+├── generate_figures.py                    # Figures 1-5 (PDF)
+├── compute_Rt_analytical.py               # R(t) computation with diagnostics
+├── test_model.py                          # Independent check of the paper's numbers
+├── requirements.txt                       # Pinned Python dependencies
+├── CITATION.cff                           # Citation metadata (used by Zenodo)
+├── LICENSE                                # MIT (code)
+└── README.md
 ```
 
 ---
 
-## Reproducing the Figures
-
-### Setup
+## Reproducing
 
 ```bash
 pip install -r requirements.txt
+python test_model.py          # checks every computed number in the paper
+python generate_figures.py    # writes figure1_crossover.pdf ... figure5_log_decomposition.pdf
+pdflatex main_rebuilt.tex && pdflatex main_rebuilt.tex
 ```
 
-The pinned versions are those used for the preprint. The scripts were also verified on newer numpy, scipy and matplotlib. Check the numbers with `python test_model.py`.
-
-### Generate all figures
-
-```bash
-python generate_figures.py
-```
-
-This produces four PDF files in the working directory:
-
-| File | Figure | Description |
-|------|--------|-------------|
-| `figure1_crossover.pdf` | Fig. 1 | Illustrative retention crossover under power law |
-| `figure2_model_surface.pdf` | Fig. 2 | Model-predicted recall as a function of spacing gap |
-| `figure3_Rt_analytical.pdf` | Fig. 3 | R(t) derived analytically from Cepeda et al. (2008) |
-| `figure4_model_vs_data.pdf` | Fig. 4 | Model-derived vs. data-implied R(t) |
-
-It also prints two tables to stdout:
-- R(t) at key retention intervals (1 day through 1 year)
-- Comparison of model-derived vs. paper-stated percentage improvements
-
-### Diagnostic script
-
-```bash
-python compute_Rt_analytical.py
-```
-
-Runs full diagnostics: verifies model structure (A(0) = 1.0, R(g) minimum at g* = exp(d)−1 ≈ 30.6 days), checks monotonicity over [1, 3650] days, fits sqrt/log/power approximations to R(t), and saves PNG versions of the figures.
+The pinned versions are those used for the original preprint; the scripts also run on current numpy, scipy, and matplotlib. Figures must be generated before compiling the manuscript.
 
 ---
 
-## Compiling the Manuscript
+## Versions
 
-```bash
-pdflatex main_rebuilt.tex
-pdflatex main_rebuilt.tex  # run twice for cross-references
-```
-
-Figures must be generated first (see above). The `.tex` file references `figure1_crossover.pdf` through `figure4_model_vs_data.pdf` by filename in the working directory.
-
-**Requirements:** A standard TeX distribution (TeX Live, MiKTeX, or MacTeX) with the following packages: `amsmath`, `amssymb`, `graphicx`, `booktabs`, `hyperref`, `geometry`, `titlesec`.
-
----
-
-## Key Analytical Results
-
-| Retention Interval | Optimal Gap (days) | Massed Recall | Optimal Recall | R(t) |
-|---|---|---|---|---|
-| 1 day | 0.5 | 0.977 | 0.978 | 1.00 |
-| 1 week | 5.0 | 0.856 | 0.893 | 1.04 |
-| 1 month | 12.2 | 0.550 | 0.704 | 1.28 |
-| 3 months | 18.4 | 0.236 | 0.463 | 1.96 |
-| 6 months | 21.5 | 0.101 | 0.307 | 3.03 |
-| 1 year | 23.7 | 0.034 | 0.182 | 5.35 |
-
-All values computed via continuous optimization over g ∈ [0, 500] days.
-
----
-
-## Caveat
-
-R(1 year) = 5.35 is a model extrapolation. At 350 days the fitted surface overpredicts the ratio implied by the Cepeda et al. data (about 1.77), largely because of floor effects in the data. Read the long-horizon values as model-implied, not observed.
-
----
-
-## Preprint Version
-
-The commit tagged `v1.0-preprint` corresponds exactly to the submitted preprint. To reproduce that version:
-
-```bash
-git checkout v1.0-preprint
-```
+- **v1.1.0** (October 2026): log-ratio reframing; corrected crossover formula, citations, DOIs, and the Bahrick and Phelps cost adjustment; long-delay model values qualified. The manuscript ends with a full list of changes.
+- **v1.0.1** (October 2026): first Zenodo archive of the original preprint.
+- **v1.0-preprint**: original manuscript as first submitted.
 
 ---
 
 ## License
 
-Code: MIT License  
+Code: MIT License.
 Manuscript text and figures: © Michael J. Wish, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

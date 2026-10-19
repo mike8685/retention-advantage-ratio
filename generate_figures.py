@@ -116,7 +116,7 @@ ax.fill_between(t_cross[idx_cross:],
 ax.plot(t_cross, P_block*100, color=C_BLOCK, lw=2.5, label='Blocked/Massed')
 ax.plot(t_cross, P_dist*100, color=C_DIST, lw=2.5, label='Distributed/Spaced')
 ax.plot(t_star, P_block[idx_cross]*100, 'ko', ms=10, zorder=5)
-ax.annotate(f'$t^* \\approx {t_star:.0f}$ days',
+ax.annotate(f'$t^* \\approx {t_star:.1f}$ days',
             xy=(t_star, P_block[idx_cross]*100),
             xytext=(t_star+8, P_block[idx_cross]*100+8),
             fontsize=12, fontweight='bold',
@@ -199,9 +199,14 @@ ax.axhline(y=1, color='gray', ls='--', lw=1, alpha=0.7)
 ax.text(5, 1.05, r'$\mathcal{R}=1$ (equal performance)',
         fontsize=9, color='gray')
 
+# Region beyond the longest tested retention interval (350 days)
+ax.axvspan(350, 400, color='gray', alpha=0.15, lw=0)
+ax.text(375, 5.7, 'beyond\ntested RI', fontsize=8, color='dimgray',
+        ha='center', va='top')
+
 # Info box
 ax.text(0.03, 0.97,
-        'Derived analytically from\nCepeda et al. (2008)\npublished model parameters',
+        'Computed from the descriptive surface\nof Cepeda et al. (2008); values near\n350 days exceed the data (Fig. 4)',
         transform=ax.transAxes, fontsize=9, va='top',
         bbox=dict(boxstyle='round,pad=0.4', facecolor='#E8F5E9',
                   edgecolor='#4CAF50', alpha=0.9))
@@ -241,9 +246,9 @@ ax.scatter(t_paper, paper_improvements, s=120, color=C_DATA,
 ax.plot(t_paper, paper_improvements, '--', color=C_DATA, lw=1.5, alpha=0.5)
 
 # Annotate the divergence at 350 days
-ax.annotate('Gap-range\ntruncation?',
+ax.annotate('Model massed recall\nnear floor (0.036):\nratio unstable',
             xy=(350, paper_improvements[3]),
-            xytext=(270, 2.8),
+            xytext=(225, 2.9),
             fontsize=9, color=C_DATA, fontstyle='italic',
             arrowprops=dict(arrowstyle='->', color=C_DATA, lw=1.2))
 
@@ -259,13 +264,44 @@ ax.legend(loc='upper left', framealpha=0.9, fontsize=9)
 # Caveat box
 ax.text(0.97, 0.05,
         'Model and data agree on growth\n'
-        'through 70 days; diverge at 350\n'
-        'due to limited gap range in study',
+        'through 70 days; at 350 days the\n'
+        'model ratio is about 3x the data',
         transform=ax.transAxes, fontsize=8.5, ha='right', va='bottom',
         bbox=dict(boxstyle='round,pad=0.3', facecolor='#FFF9C4',
                   edgecolor='#FBC02D', alpha=0.8))
 
 fig.savefig('figure4_model_vs_data.pdf')
+plt.close()
+
+
+# =====================================================================
+# FIGURE 5: LOG-RATIO DECOMPOSITION
+#   ln R(t; g) = ln A(g) + [R(0) - R(g)] * ln(1 + b t)
+# Each fixed gap is a straight line in x = ln(1 + b t):
+#   intercept = ln A(g) <= 0 (initial-strength cost)
+#   slope     = R(0) - R(g) (decay-rate benefit)
+# =====================================================================
+fig, ax = plt.subplots(figsize=(7, 5))
+t_lin = np.linspace(0, 350, 400)
+x_lin = np.log(1 + B_PAR * t_lin)
+gap_set = [1, 7, 21, 105]
+gap_cols = ['#9C6ADE', '#3B82C4', '#3D6B35', '#C77C02']
+for g, col in zip(gap_set, gap_cols):
+    lnA = np.log(A_func(g))
+    slope = R_func(0) - R_func(g)
+    ax.plot(x_lin, lnA + slope * x_lin, color=col, lw=2,
+            label=f'gap {g} d: intercept {lnA:.3f}, slope {slope:.2f}')
+ax.axhline(0, color='gray', ls='--', lw=1)
+ticks_t = [7, 35, 70, 180, 350]
+ax_top = ax.secondary_xaxis('top',
+                            functions=(lambda x: x, lambda x: x))
+ax_top.set_xticks([np.log(1 + B_PAR * t) for t in ticks_t])
+ax_top.set_xticklabels([f'{t} d' for t in ticks_t])
+ax_top.set_xlabel('Retention interval')
+ax.set_xlabel(r'$\ln(1 + bt)$')
+ax.set_ylabel(r'$\ln \mathcal{R}(t; g)$')
+ax.legend(loc='upper left', fontsize=8.5, framealpha=0.9)
+fig.savefig('figure5_log_decomposition.pdf')
 plt.close()
 
 
