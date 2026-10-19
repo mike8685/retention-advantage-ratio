@@ -185,7 +185,7 @@ annotations = [
     (7, Rt_milestones[1], '1 wk', (15, -5)),
     (30, Rt_milestones[3], '1 mo', (15, -5)),
     (90, Rt_milestones[5], '3 mo', (15, 5)),
-    (365, Rt_milestones[7], '1 yr', (-35, 10)),
+    (180, Rt_milestones[6], '6 mo', (15, 5)),
 ]
 for tx, rx, lab, (dx, dy) in annotations:
     ax.annotate(f'{lab}\n$\\mathcal{{R}}={rx:.2f}$',
@@ -246,9 +246,9 @@ ax.scatter(t_paper, paper_improvements, s=120, color=C_DATA,
 ax.plot(t_paper, paper_improvements, '--', color=C_DATA, lw=1.5, alpha=0.5)
 
 # Annotate the divergence at 350 days
-ax.annotate('Model massed recall\nnear floor (0.036):\nratio unstable',
-            xy=(350, paper_improvements[3]),
-            xytext=(225, 2.9),
+ax.annotate('Model massed recall 0.036\nvs observed 0.13:\nratio inflated',
+            xy=(350, Rt_paper[3]),
+            xytext=(215, 2.75),
             fontsize=9, color=C_DATA, fontstyle='italic',
             arrowprops=dict(arrowstyle='->', color=C_DATA, lw=1.2))
 
@@ -370,4 +370,4 @@ print(f"\nFor comparison, at 70 days:")
 print(f"  recall(70, 0) = {recall(70, 0):.4f}")
 print(f"  recall(70, g_opt={optimal_recall(70)[0]:.1f}) = {optimal_recall(70)[1]:.4f}")
 
-print("\nFIGURES SAVED: figure1-4")
+print("\nFIGURES SAVED: figure1-5")

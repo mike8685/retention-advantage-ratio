@@ -82,8 +82,10 @@ for t in t_specific:
     R_ratio = recall_opt / recall_massed
     R_t_specific.append(R_ratio)
     
-    # Also check the discrete gaps used in the study
-    discrete_gaps = [0, 1, 2, 4, 7, 11, 14, 21, 35, 70, 105]
+    # Also check the gaps actually tested at this RI (Cepeda et al., 2008, Table 1)
+    tested_gaps = {7: [0, 1, 2, 7, 21, 105], 35: [0, 1, 4, 7, 11, 21, 105],
+                   70: [0, 1, 7, 14, 21, 105], 350: [0, 1, 7, 21, 35, 70, 105]}
+    discrete_gaps = tested_gaps.get(t, [0, 1, 2, 4, 7, 11, 14, 21, 35, 70, 105])
     discrete_recalls = [recall(t, g) for g in discrete_gaps]
     best_discrete_idx = np.argmax(discrete_recalls)
     best_discrete_gap = discrete_gaps[best_discrete_idx]
@@ -106,14 +108,14 @@ print("COMPARISON WITH PAPER'S STATED IMPROVEMENTS")
 print("-" * 70)
 paper_improvements = [10, 59, 111, 77]  # percent
 paper_best_gaps = [1, 11, 21, 21]  # days (from paper)
-print(f"{'RI':>6} | {'Paper gap':>9} | {'Paper %':>8} | {'Model %':>8} | {'Match?':>7}")
+print(f"{'RI':>6} | {'Paper gap':>9} | {'Paper %':>8} | {'Model %':>8} | {'Model/Data lnR':>14}")
 print("-" * 55)
 for t, pg, pi in zip(t_specific, paper_best_gaps, paper_improvements):
     recall_massed = recall(t, 0)
     recall_at_paper_gap = recall(t, pg)
     model_improvement = (recall_at_paper_gap - recall_massed) / recall_massed * 100
-    match = "YES" if abs(model_improvement - pi) < 15 else "NO"
-    print(f"{t:>4}d | {pg:>7}d | {pi:>7}% | {model_improvement:>7.1f}% | {match:>7}")
+    ln_ratio = np.log(1 + model_improvement / 100) / np.log(1 + pi / 100)
+    print(f"{t:>4}d | {pg:>7}d | {pi:>7}% | {model_improvement:>7.1f}% | {ln_ratio:>14.2f}")
 
 # --- Full R(t) curve ---
 print("\n" + "-" * 70)

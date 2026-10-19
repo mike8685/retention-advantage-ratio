@@ -39,7 +39,7 @@ All model values are computed from the published parameters; no data are digitiz
 
 Data-implied values come from the improvements Cepeda et al. (2008) report for the best tested gap (10%, 59%, 111%, 77%).
 
-**Caveat.** Model and data agree through 70 days. At 350 days the model ratio is about three times the data, because the model's massed-practice recall there is 0.036 and small errors in a near-floor denominator inflate the ratio. Long-delay model ratios are not empirical estimates.
+**Caveat.** Model and data agree on the direction of growth through 70 days, with the data showing larger advantages. At 350 days the model ratio is about three times the data: the surface predicts massed recall of 0.036 where Cepeda et al. observed about 0.13, and the observed ratio falls between 70 and 350 days at the same best gap. Long-delay model ratios are not empirical estimates.
 
 ---
 
@@ -51,7 +51,7 @@ Data-implied values come from the improvements Cepeda et al. (2008) report for t
 ├── retention-advantage-ratio-preprint.pdf # Compiled manuscript
 ├── generate_figures.py                    # Figures 1-5 (PDF)
 ├── compute_Rt_analytical.py               # R(t) computation with diagnostics
-├── test_model.py                          # Independent check of the paper's numbers
+├── test_model.py                          # Independent check of the main computed values
 ├── requirements.txt                       # Pinned Python dependencies
 ├── CITATION.cff                           # Citation metadata (used by Zenodo)
 ├── LICENSE                                # MIT (code)
@@ -64,7 +64,7 @@ Data-implied values come from the improvements Cepeda et al. (2008) report for t
 
 ```bash
 pip install -r requirements.txt
-python test_model.py          # checks every computed number in the paper
+python test_model.py          # checks the main computed values in the paper
 python generate_figures.py    # writes figure1_crossover.pdf ... figure5_log_decomposition.pdf
 pdflatex main_rebuilt.tex && pdflatex main_rebuilt.tex
 ```

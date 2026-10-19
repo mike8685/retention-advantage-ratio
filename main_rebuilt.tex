@@ -61,7 +61,7 @@
 \vspace{1.2em}
 
 \begin{minipage}{0.9\textwidth}
-\textbf{Abstract.} Effect sizes in practice-distribution research are usually reported at a single retention interval, even though the advantage of distributed over massed or blocked practice changes with the delay to test. This paper treats the \textit{retention advantage ratio} $\effr(t) = P_{\text{distributed}}(t)/P_{\text{blocked}}(t)$ as the primary object of analysis and works with its logarithm. Under a power law of forgetting with a shared time scale, the log-ratio separates exactly into two terms: an initial-strength term that is constant in time, and a decay-rate term that grows linearly in $\ln(1+\alpha t)$. The decomposition yields the crossover delay in closed form and makes the decay-rate difference $\Delta\lambda$ the slope of a straight line. Applied to the descriptive retention surface fitted by Cepeda, Vul, Rohrer, Wixted, and Pashler (2008), the framework gives model values $\effr = 1.04$, $1.34$, and $1.73$ at 7, 35, and 70 days, against data-implied values of 1.10, 1.59, and 2.11. At 350 days the model ratio (5.16) is roughly three times the data-implied ratio (1.77), because the model's massed-practice recall is near the floor; long-delay ratios computed from fitted surfaces should therefore not be reported as findings. I review interleaving and contextual-interference evidence that shows the same acquisition-retention dissociation, note evidence that cuts against a simple generalization, and propose a reporting standard: log-ratios with standard errors at specified retention intervals, and $\Delta\lambda$ when three or more intervals are available.
+\textbf{Abstract.} Effect sizes in practice-distribution research are usually reported at a single retention interval, even though the advantage of distributed over massed or blocked practice changes with the delay to test. This paper treats the \textit{retention advantage ratio} $\effr(t) = P_{\text{distributed}}(t)/P_{\text{blocked}}(t)$ as the primary object of analysis and works with its logarithm. Under a power law of forgetting with a shared time scale, the log-ratio separates exactly into two terms: an initial-strength term that is constant in time, and a decay-rate term that grows linearly in $\ln(1+\alpha t)$. The decomposition yields the crossover delay in closed form and makes the decay-rate difference $\Delta\lambda$ the slope of a straight line. Applied to the descriptive retention surface fitted by Cepeda, Vul, Rohrer, Wixted, and Pashler (2008), the framework gives model values $\effr = 1.04$, $1.34$, and $1.73$ at 7, 35, and 70 days, against data-implied values of 1.10, 1.59, and 2.11. At 350 days the model ratio (5.16) is roughly three times the data-implied ratio (1.77): the surface predicts massed-practice recall of 0.036 where the observed value was about 0.13, and the observed ratio falls between 70 and 350 days at the same best gap, which a pure shared-scale power law does not allow. Long-delay ratios read off fitted surfaces should therefore not be reported as findings. I review interleaving and contextual-interference evidence, note where it supports and where it cuts against generalizing the framework, and propose a reporting standard: log-ratios with standard errors at specified retention intervals, and $\Delta\lambda$ when three or more intervals are available.
 
 \vspace{0.5em}
 \textbf{Keywords:} spacing effect, retention advantage ratio, log response ratio, desirable difficulties, retention interval, practice distribution
@@ -93,7 +93,7 @@ Retention after practice is well described by a power function of time (Wixted \
 P(t) = m(1 + \alpha t)^{-\lambda}
 \label{eq:powerlaw}
 \end{equation}
-where $m$ is recall at $t = 0$, $\alpha$ is a temporal scaling parameter, and $\lambda$ is the decay exponent. If spacing slows forgetting, it does so by lowering $\lambda$.
+where $m$ is recall at $t = 0$, $\alpha$ is a temporal scaling parameter, and $\lambda$ is the decay exponent. If conditions share $\alpha$, an effect of spacing on the rate of forgetting appears as a lower $\lambda$.
 
 \subsection{Log-Ratio Decomposition}
 
@@ -153,7 +153,7 @@ For any fixed gap $g$, since $A(0) = 1$,
 \lr(t; g) = \ln A(g) + [R(0) - R(g)]\ln(1 + bt)
 \label{eq:cepeda_decomp}
 \end{equation}
-which is Equation~\ref{eq:decomp} with $m_d/m_b = A(g)$ and $\Delta\lambda = R(0) - R(g)$, where $R(0) = 1 + c\,d^2 = 2.097$. The intercept $\ln A(g)$ is never positive, so every gap starts at a disadvantage under this surface, and the slope is positive for all gaps up to about $e^{2d} - 1 \approx 1{,}000$ days. Figure~\ref{fig:decomp} shows the lines for four tested gaps, and Table~\ref{tab:crossover} gives the implied crossover delays from Equation~\ref{eq:crossover}. Longer gaps start lower and climb faster. The crossovers for short gaps fall below the shortest tested RI of 7 days, so they are properties of the fitted function rather than observations.
+which is Equation~\ref{eq:decomp} with $m_d/m_b = A(g)$ and $\Delta\lambda = R(0) - R(g)$, where $R(0) = 1 + c\,d^2 = 2.097$. The intercept $\ln A(g)$ is never positive, so every gap starts at a disadvantage under this surface, and the slope is positive for all gaps up to about $e^{2d} - 1 \approx 1{,}000$ days. Figure~\ref{fig:decomp} shows the lines for four tested gaps, and Table~\ref{tab:crossover} gives the implied crossover delays from Equation~\ref{eq:crossover}. Up to about 30 days, longer gaps start lower and climb faster; beyond that the slope declines again, so the 105-day gap both starts lowest and climbs more slowly than the 21-day gap. The crossovers for short gaps fall below the shortest tested RI of 7 days, so they are properties of the fitted function rather than observations.
 
 \begin{figure}[!htbp]
 \centering
@@ -234,14 +234,16 @@ Computed from the published parameters with continuous optimization over $g \in 
 
 Cepeda et al.\ (2008) reported that the best tested gap improved recall over the zero gap by 10\%, 59\%, 111\%, and 77\% at RIs of 7, 35, 70, and 350 days, with best tested gaps of 1, 11, 21, and 21 days. These imply $\effr = 1.10$, 1.59, 2.11, and 1.77 ($\lr = 0.10$, 0.46, 0.75, and 0.57). The model gives 1.04, 1.34, 1.73, and 5.16 (Figure~\ref{fig:model_v_data}).
 
-Through 70 days, model and data agree on the direction and approximate rate of growth, with the data running somewhat higher. Part of that gap is expected: the data-implied value takes the best of six or seven noisy cells at each RI, which biases it upward, while the model smooths across cells.
+Evaluated at the best tested gaps rather than the continuous optimum, the model gives 1.03, 1.33, 1.72, and 5.15, so the comparison does not depend on how the optimum is defined.
 
-At 350 days the two disagree sharply. The data-implied ratio falls from 2.11 to 1.77, while the model ratio rises to 5.16. The reason is the denominator. The model's massed recall at 350 days is 0.036, so a small absolute error in that one cell produces a large error in the ratio. A surface that fits recall proportions with $R^2 = .98$ can still misrepresent ratios badly wherever the reference condition is near the floor. This is a general property of ratio measures, not a defect specific to this surface, and it is the main reason the reporting standard in Section~\ref{sec:standard} asks for observed log-ratios with standard errors rather than ratios read off fitted curves.
+Through 70 days, model and data agree on direction, but the data advantage is substantially larger: at 35 days the data show a 59\% advantage against the model's 34\%, and the data-implied $\lr$ rises about 30\% faster per unit of $\ln(1+bt)$. Part of this is expected, because the data-implied value takes the best of six or seven noisy cells at each RI, which biases it upward, while the model smooths across cells.
+
+At 350 days the two disagree sharply, for two separate reasons. First, the surface misfits the massed cell. It predicts massed recall of 0.036 at 350 days; the observed value was about 0.13 (with the best gap at about 0.23). That is an error of roughly 0.09 in absolute terms and 70\% in relative terms, and the ratio then amplifies it. A surface that fits recall proportions with $R^2 = .98$ overall can still misfit the cell that matters most for a ratio. Second, the data themselves strain the framework. The best tested gap was 21 days at both 70 and 350 days, yet the data-implied $\lr$ fell from 0.75 to 0.57. For a fixed gap, Equation~\ref{eq:decomp} with a shared $\alpha$ and $\Delta\lambda > 0$ does not allow any fall. The decline is consistent with floors (Section~\ref{sec:floors}), with condition-specific time scales, or with sampling noise: the cells are between-subjects with $n = 45$ and 25. Either way, the 350-day data are a counterexample to unbounded growth, and the reporting standard in Section~\ref{sec:standard} therefore asks for observed log-ratios with standard errors rather than ratios read off fitted curves.
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=\columnwidth]{figure4_model_vs_data.pdf}
-\caption{Model-derived $\effr(t)$ (line and diamonds) versus data-implied values from the improvements reported by Cepeda et al.\ (2008) (circles). Both rise through 70 days. At 350 days the model ratio is about three times the data-implied ratio because the model's massed recall is near the floor.}
+\caption{Model-derived $\effr(t)$ (line and diamonds) versus data-implied values from the improvements reported by Cepeda et al.\ (2008) (circles). Both rise through 70 days. At 350 days the model ratio is about three times the data-implied ratio because the surface underpredicts massed recall (0.036 against an observed 0.13).}
 \label{fig:model_v_data}
 \end{figure}
 
@@ -253,15 +255,15 @@ The pure power law decays toward zero, so under it $\effr(t) \to \infty$ wheneve
 P(t) = \pi + (m - \pi)(1 + \alpha t)^{-\lambda}
 \label{eq:permastore}
 \end{equation}
-implies $\effr(t) \to \pi_d/\pi_b$ as $t \to \infty$: the ratio levels off at the ratio of the floors instead of growing without bound.
+implies $\effr(t) \to \pi_d/\pi_b$ as $t \to \infty$: the ratio converges to the ratio of the floors instead of growing without bound. The approach need not be monotonic; with plausible parameters the ratio can rise above $\pi_d/\pi_b$ at intermediate delays and then come back down, so the limit alone does not predict the ratio at any particular delay.
 
-Bahrick and Phelps (1987) give the most direct numbers. Eight years after relearning Spanish vocabulary to criterion, recall was 15\% for a 30-day intersession interval, 8\% for a 1-day interval, and 6\% for a zero interval (sessions run back to back), against 1\% for untrained controls. The 30-day/zero-interval ratio is 2.5, which the authors themselves report. If those values approximate the floors, the long-run ratio for that design is of order 2.5, which is consistent with the data-implied value of 1.77 at 350 days and inconsistent with the model's 5.16. The comparison is indirect: the two studies used different materials, training regimes, and definitions of massed practice, so the Bahrick and Phelps values bound plausibility rather than calibrate the Cepeda surface.
+Bahrick and Phelps (1987) give the most direct long-delay numbers. Eight years after relearning Spanish vocabulary to criterion, recall was 15\% for a 30-day intersession interval, 8\% for a 1-day interval, and 6\% for a zero interval (sessions run back to back), against 1\% for untrained controls. The 30-day/zero-interval ratio is 2.5, as the authors report, or about 2.8 after subtracting the control baseline. These values show that massed and spaced practice both leave a residue above baseline after eight years and that the ratio remains well above 1, but the design limits what they can calibrate: the groups were small, intersession intervals were changed for most subjects partway through training, and materials, training regime, and the definition of massed practice all differ from Cepeda et al.\ (2008).
 
 \section{Meta-Analytic Context}
 
 \subsection{Spacing Effect Sizes}
 
-Table~\ref{tab:spacing} lists two widely cited aggregate estimates. Donovan and Radosevich (1999) found large differences by task type and by intertrial interval: effects were largest when spaced practice involved very short intertrial intervals and smallest for intervals over a day. Aggregates of this kind illustrate the problem this paper addresses: they average over retention intervals at which the advantage differs.
+Table~\ref{tab:spacing} lists two widely cited aggregate estimates. Donovan and Radosevich (1999) found large differences by task type and by intertrial interval: effects were largest when spaced practice involved very short intertrial intervals and smallest for intervals over a day, and most of their intervals were seconds to minutes, far shorter than the gaps in Cepeda et al.\ (2008). They also found similar effects on acquisition and retention ($d = 0.45$ and $0.51$), which is not the pattern of a strongly growing advantage. Aggregates of this kind illustrate the problem this paper addresses: they average over retention intervals at which the advantage differs.
 
 \begin{table}[!htbp]
 \centering
@@ -285,7 +287,7 @@ Donoghue \& Hattie (2021)\textsuperscript{b} & 0.85 & $SE = 0.053$ \\
 
 \subsection{Optimal Gap Relative to Retention Interval}
 
-Cepeda et al.\ (2008) found that the optimal gap was about 20\% of the RI for delays of a few weeks and about 5\% at one year. The fitted surface gives optimal gaps of 5.0, 13.1, 17.1, and 23.6 days at 7, 35, 70, and 350 days, or 71\%, 37\%, 24\%, and 7\% of the RI. The surface's 7-day value is well above the best tested gap of 1 day, another reminder that the function is a smooth summary rather than a cell-by-cell description.
+Cepeda et al.\ (2008) report that the optimal gap ``declined from about 20 to 40\% of a 1-week test delay to about 5 to 10\% of a 1-year test delay.'' Interpolating their recall data with cubic splines, they estimated optimal gaps of about 3, 8, 12, and 27 days (43\%, 23\%, 17\%, and 8\% of the RI). The fitted surface gives 5.0, 13.1, 17.1, and 23.6 days (71\%, 37\%, 24\%, and 7\%), longer than the interpolated optima at the three shorter RIs and shorter at 350 days, another reminder that the function is a smooth summary rather than a cell-by-cell description.
 
 \subsection{Long-Term Retention and Cost}
 \label{sec:longterm}
@@ -294,9 +296,9 @@ The Bahrick and Phelps (1987) design also allows a cost adjustment, because trai
 \[
 \effr_c(8\text{ yr}) = \frac{3.0}{5.5} \times 2.5 \approx 1.36, \qquad \lr_c = 0.92 - 0.61 = 0.31.
 \]
-Spacing still wins after accounting for its extra practice, but by much less than the raw ratio suggests. The number of training sessions differed only slightly across intervals (means of 7.3 to 7.8).
+The result depends on the cost unit. Presentations count only re-presentations after failed recall, while every session also tested the full list, and the number of sessions differed only slightly across intervals (means of 7.3 to 7.8), with the zero interval needing the most. With sessions as the cost unit, $\effr_c \geq 2.5$. The defensible statement is a range: on these data, spacing remains ahead after cost adjustment, by a factor between about 1.4 and 2.5 depending on how practice is counted.
 
-Bahrick, Bahrick, Bahrick, and Bahrick (1993) compared spaced schedules with each other: 13 sessions at 56-day intervals yielded retention comparable to 26 sessions at 14-day intervals. Relative to the 14-day schedule, the 56-day schedule therefore has $\effr \approx 1$ at half the number of sessions, or $\effr_c \approx 2$ with sessions as the cost unit. Because each session was trained to criterion, sessions are an imperfect cost unit; as Cepeda et al.\ (2008) note, this design confounds total study time with gap.
+Bahrick, Bahrick, Bahrick, and Bahrick (1993), a study of four participants (the authors themselves), compared spaced schedules with each other: 13 sessions at 56-day intervals yielded retention comparable to 26 sessions at 14-day intervals. Relative to the 14-day schedule, the 56-day schedule therefore has $\effr \approx 1$ at half the number of sessions, or $\effr_c \approx 2$ with sessions as the cost unit. Because each session was trained to criterion, sessions are an imperfect cost unit; as Cepeda et al.\ (2008) note, this design confounds total study time with gap.
 
 \section{Extensions: Interleaving and Contextual Interference}
 
@@ -323,18 +325,18 @@ Words & $-0.39$ & [$-0.64$, $-0.14$] \\
 \end{tabular}
 \end{table}
 
-For words, blocking was better, so $\effr < 1$ and the framework's growth prediction does not apply. More importantly for this paper, Brunmair and Richter found no evidence that retention interval moderated the interleaving effect. Their meta-regression compares different studies at different delays, which is a weak test of within-study growth, but it is evidence against assuming that interleaving advantages grow with delay the way spacing advantages do.
+For words, blocking was better, so $\effr < 1$ and the framework's growth prediction does not apply. Brunmair and Richter also found no evidence that retention interval moderated the interleaving effect. Because most studies did not report exact intervals, they coded retention interval only as short (under 20 minutes) versus longer, so this is not a test of growth over days or weeks; it does mean the meta-analytic record offers no support yet for such growth.
 
 Within-study evidence is scarce. In a classroom study of seventh-grade mathematics, Rohrer, Dedrick, and Stershic (2015) found test scores of 80\% versus 64\% (interleaved versus blocked) after 1 day and 74\% versus 42\% after 30 days:
 \begin{equation}
 \effr(1\text{ d}) = \tfrac{0.80}{0.64} = 1.25, \qquad \effr(30\text{ d}) = \tfrac{0.74}{0.42} = 1.76
 \label{eq:rohrer}
 \end{equation}
-or $\lr = 0.22$ and $0.57$. The growth is consistent with a decay-rate benefit, but it comes from one study with two time points, and, as in most classroom interleaving designs, interleaving also spaced practice of each problem type, so the two manipulations are not fully separable.
+or $\lr = 0.22$ and $0.57$. The rise is consistent with a decay-rate benefit, but the practice schedule $\times$ delay interaction was not significant, $F(1, 124) = 2.84$, $p = .09$. Nor does this study show an acquisition cost: practice accuracy was 84\% interleaved versus 81\% blocked, and interleaving was already ahead at 1 day. It comes from one study with two time points, and, as in most classroom interleaving designs, interleaving also spaced practice of each problem type, so the two manipulations are not fully separable.
 
 \subsection{Contextual Interference in Motor Learning}
 
-Random practice schedules in motor learning show the same dissociation. In Shea and Morgan's (1979) study, mean total time (seconds; lower is better) was:
+Random practice schedules in motor learning show the clearest acquisition-retention dissociation. Shea and Morgan (1979) reported the following mean total times (seconds; lower is better) for acquisition and retention:
 
 \begin{center}
 \small
@@ -348,7 +350,7 @@ Random & 1.69 & 1.31 \\
 \end{tabular}
 \end{center}
 
-Blocked practice was faster during acquisition and slower at retention. Two recent meta-analyses by Czy\.{z} and colleagues quantify the effect across studies. For retention, Czy\.{z}, W\'{o}jcik, Solarsk\'{a}, and Kiper (2024a) reported a medium overall benefit of random practice (three-level model SMD $= 0.63$, 95\% CI [0.33, 0.93], total $I^2 = 90\%$), large in laboratory settings (0.92) and small and non-significant in applied settings (0.23, 95\% CI [$-0.16$, 0.62]); by age, the effect was negligible in young participants (0.02), medium in adults (0.63), and large in older adults (1.45). For transfer, Czy\.{z}, W\'{o}jcik, and Solarsk\'{a} (2024b) reported SMD $= 0.55$, 95\% CI [0.25, 0.86], total $I^2 = 86\%$, again larger in laboratory (0.75) than applied settings (0.37, 95\% CI [$-0.02$, 0.69]), with a negligible effect in young participants (0.12). These are single delayed-test estimates, so they establish the sign of $\effr$ at retention but not its growth.
+Blocked practice was faster during acquisition and slower at retention. Two recent meta-analyses by Czy\.{z} and colleagues quantify the effect across studies. For retention, Czy\.{z}, W\'{o}jcik, Solarsk\'{a}, and Kiper (2024a) reported a medium overall benefit of random practice (three-level model SMD $= 0.63$, 95\% CI [0.33, 0.93], total $I^2 = 90\%$), large in laboratory settings (0.92) and small and non-significant in applied settings (0.23, 95\% CI [$-0.16$, 0.62]); by age, point estimates were negligible in young participants (0.02, 95\% CI [$-0.90$, 0.94]), medium in adults (0.63), and large in older adults (1.45), although the age moderator test was not significant, $F(2, 189) = 1.69$, $p = .19$. For transfer, Czy\.{z}, W\'{o}jcik, and Solarsk\'{a} (2024b) reported SMD $= 0.55$, 95\% CI [0.25, 0.86], total $I^2 = 86\%$, again larger in laboratory (0.75) than applied settings (0.37, 95\% CI [$-0.02$, 0.69]), with a negligible effect in young participants (0.12). These are single delayed-test estimates, so they establish the sign of $\effr$ at retention but not its growth.
 
 \subsection{Variability of Practice}
 
@@ -361,14 +363,14 @@ The new theory of disuse (Bjork \& Bjork, 1992) distinguishes storage strength f
 \Delta S_s \propto f(S_r), \quad f'(S_r) < 0
 \label{eq:storage}
 \end{equation}
-Massed practice occurs while retrieval strength is high, so it buys little durable storage; spacing lets retrieval strength fall before the next event. Pyc and Rawson (2009) tested the related retrieval effort hypothesis by manipulating the interval between practice trials and the criterion level. Difficult but successful retrievals produced better final test performance than easier successful retrievals, and higher criterion levels produced diminishing returns. In the language of Equation~\ref{eq:decomp}, these mechanisms predict a positive $\Delta\lambda$: they act on the rate of forgetting, not only on its starting level.
+Massed practice occurs while retrieval strength is high, so it buys little durable storage; spacing lets retrieval strength fall before the next event. Pyc and Rawson (2009) tested the related retrieval effort hypothesis by manipulating the lag between practice trials of an item (the number of intervening items) and the criterion level. Difficult but successful retrievals produced better final test performance than easier successful retrievals, and higher criterion levels produced diminishing returns. In the language of Equation~\ref{eq:decomp}, these mechanisms predict a positive $\Delta\lambda$: they act on the rate of forgetting, not only on its starting level.
 
 \section{Generality Hypothesis}
 \label{sec:hypothesis}
 
-\textbf{Hypothesis.} For a manipulation that lowers acquisition performance and raises delayed performance relative to a control, $\lr(t)$ increases with $t$ over educationally relevant intervals, that is, $\Delta\lambda > 0$.
+\textbf{Hypothesis.} For a manipulation that improves delayed performance, $\lr(t)$ continues to increase across delayed retention intervals, that is, $\Delta\lambda > 0$ estimated from delayed tests alone. Stating it this way avoids circularity: any manipulation that lowers acquisition and raises delayed performance must show a higher $\lr$ at the delayed test than at acquisition, so the substantive claim concerns what happens between delayed intervals.
 
-The hypothesis predicts that multi-interval studies of interleaving (in domains where it helps) and of random practice will show a positive slope of $\lr$ on $\ln(1+\alpha t)$. The Rohrer et al.\ (2015) data are consistent with it; the absence of retention-interval moderation in Brunmair and Richter (2019) is a reason for doubt.
+The evidence is mixed. Cepeda et al.\ (2008) support growth from 7 to 70 days and contradict it from 70 to 350 days at a fixed gap. Rohrer et al.\ (2015) show a rise from 1 to 30 days that falls short of significance. Brunmair and Richter (2019) provide no test at the relevant scale. The hypothesis is therefore open, and multi-interval studies of interleaving and random practice are the direct test.
 
 \textbf{Shared time scale.} Equation~\ref{eq:decomp} requires a common $\alpha$. For spacing the Cepeda et al.\ (2008) surface builds this in. For interleaving it is less secure, because interleaving changes encoding as well as timing, for example by promoting discrimination between categories (Kornell \& Bjork, 2008; Birnbaum, Kornell, Bjork, \& Bjork, 2013). If $\alpha_d \neq \alpha_b$,
 \begin{equation}
@@ -385,14 +387,14 @@ and $\lr(t)$ need not be linear in $\ln(1+\alpha t)$ or even monotonic. Variabil
 \widehat{\text{Var}}(\lr) = \frac{s_d^2}{n_d \bar{P}_d^2} + \frac{s_b^2}{n_b \bar{P}_b^2}
 \label{eq:var_lnrr}
 \end{equation}
-Report the absolute difference $\bar{P}_d - \bar{P}_b$ alongside it, because ratios become unstable when the reference condition is near the floor (Section~\ref{sec:model_v_data}). At minimum, include one test within a day of practice and one delayed test; 30 days is a practical delayed interval for semester-length courses.
+This form assumes independent groups. For within-subject designs, subtract $2\,\text{Cov}(P_d, P_b)/(n\bar{P}_d\bar{P}_b)$, and note that the delta-method approximation is poor when either mean is within about three standard errors of zero (Hedges et al., 1999). Report the absolute difference $\bar{P}_d - \bar{P}_b$ alongside the log-ratio, because ratios become unstable when the reference condition is near the floor (Section~\ref{sec:model_v_data}). For proportions, the log odds ratio is a reasonable alternative that is symmetric near both floor and ceiling; the log-ratio is preferred here because it maps directly onto the power-law decomposition in Equation~\ref{eq:decomp}. At minimum, include one test within a day of practice and one delayed test; 30 days is a practical delayed interval for semester-length courses.
 
 \textbf{2. Decay-rate difference.} With three or more intervals, fit Equation~\ref{eq:powerlaw} by condition, or regress $\lr$ on $\ln(1+\alpha t)$, and report $\Delta\lambda$ with its uncertainty. With exactly two intervals and an assumed $\alpha$, Equation~\ref{eq:decomp} gives
 \begin{equation}
 \Delta\hat{\lambda} = \frac{\lr(t_2) - \lr(t_1)}{\ln[(1+\alpha t_2)/(1+\alpha t_1)]}
 \label{eq:delta_lambda_twopoint}
 \end{equation}
-which should be labeled as a two-point estimate that depends on the borrowed $\alpha$ (for example $b = 0.011$ from Cepeda et al., 2008).
+which should be labeled as a two-point estimate. Its magnitude depends heavily on the assumed $\alpha$, so only its sign is well identified: for the Rohrer et al.\ (2015) values it gives 1.25 with $\alpha = 0.011$ (borrowed from Cepeda et al., 2008), 0.22 with $\alpha = 0.15$, and 0.13 with $\alpha = 1$. Report it across a range of $\alpha$ values if at all.
 
 \textbf{3. Cost.} Where practice was not equated, report the practice each condition received so that $\lr_c$ can be computed (Eq.~\ref{eq:cost_adjusted}).
 
@@ -400,7 +402,7 @@ Studies that report only $\lr$ at two standard intervals can still be pooled acr
 
 \begin{table}[!htbp]
 \centering
-\caption{Available retention advantage values}
+\caption{Available retention advantage values (model rows are not empirical estimates and should not be pooled)}
 \label{tab:summary}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -415,7 +417,7 @@ Spaced vs.\ massed & Cepeda (data) & 7 d & 1.10 \\
  & Cepeda (model) & 7 d & 1.04 \\
  & & 35 d & 1.34 \\
  & & 70 d & 1.73 \\
- & Bahrick \& Phelps & 8 yr & 2.5 (1.36\textsuperscript{a}) \\
+ & Bahrick \& Phelps & 8 yr & 2.5\textsuperscript{a} \\
 Interleaved vs.\ blocked & Rohrer et al. & 1 d & 1.25 \\
  & & 30 d & 1.76 \\
 \bottomrule
@@ -424,7 +426,7 @@ Interleaved vs.\ blocked & Rohrer et al. & 1 d & 1.25 \\
 \vspace{0.3em}
 \raggedright
 \footnotesize
-\textsuperscript{a}Cost-adjusted for presentations per item. The model value at 350 days (5.16) is omitted because it conflicts with the data.
+\textsuperscript{a}About 1.4 to 2.5 after cost adjustment, depending on the cost unit (Section~\ref{sec:longterm}). The model value at 350 days (5.16) is omitted because it conflicts with the data.
 \end{table}
 
 \section{Limitations}
@@ -432,7 +434,7 @@ Interleaved vs.\ blocked & Rohrer et al. & 1 d & 1.25 \\
 
 \textit{Descriptive surface.} The analytical results inherit the Cepeda et al.\ (2008) function, which its authors describe as one reasonable fit among several. Properties such as the crossover delays in Table~\ref{tab:crossover} may not survive a different functional form.
 
-\textit{Extrapolation and floors.} Values below 7 days or above 350 days are extrapolations, and the model's ratio at 350 days is contradicted by the data. Ratios computed where the reference condition is near the floor are unreliable however good the overall fit.
+\textit{Extrapolation and floors.} Values below 7 days or above 350 days are extrapolations, and the model's ratio at 350 days is contradicted by the data, which also show the ratio falling between 70 and 350 days. Ratios computed where the reference condition is near the floor are unreliable however good the overall fit.
 
 \textit{Single calibration.} The analytical curve comes from one study of trivia facts. Generalization to other materials, learners, and tasks is untested.
 
@@ -440,22 +442,22 @@ Interleaved vs.\ blocked & Rohrer et al. & 1 d & 1.25 \\
 
 \textit{Shared time scale.} The linear decomposition requires $\alpha_d = \alpha_b$, which is built into the spacing surface but untested for interleaving and variability.
 
-\textit{Domain boundaries.} The framework's growth prediction applies only where the manipulation helps at delay; it does not apply to interleaving of words (Brunmair \& Richter, 2019), and contextual-interference benefits are small or absent in applied settings and in young learners (Czy\.{z} et al., 2024a, 2024b).
+\textit{Domain boundaries.} The framework's growth prediction applies only where the manipulation helps at delay; it does not apply to interleaving of words (Brunmair \& Richter, 2019), and contextual-interference benefits are small and non-significant in applied settings, with uncertain effects in young learners (Czy\.{z} et al., 2024a, 2024b).
 
 \textit{Cost data.} Efficiency in the full sense requires practice-cost data, which most studies do not report.
 
 \section{Conclusion}
 
-The advantage of distributed practice is a function of retention interval, and the log of the retention advantage ratio is the natural scale on which to see it. Under a power law with a shared time scale, the log-ratio is the sum of a constant initial-strength term and a decay-rate term that grows linearly in $\ln(1+\alpha t)$, which gives the crossover in closed form and turns $\Delta\lambda$ into a slope. Applied to the Cepeda et al.\ (2008) surface, the framework reproduces the growth seen in the data through 70 days and fails at 350 days, where the model's massed recall is near the floor. That failure is the practical lesson: report observed log-ratios with standard errors at stated intervals, and estimate $\Delta\lambda$ from multi-interval data, rather than reading long-delay ratios off fitted curves. Whether interleaving and contextual interference share the decay-rate signature of spacing is an open empirical question that the proposed standard is designed to answer.
+The advantage of distributed practice is a function of retention interval, and the log of the retention advantage ratio is the natural scale on which to see it. Under a power law with a shared time scale, the log-ratio is the sum of a constant initial-strength term and a decay-rate term that grows linearly in $\ln(1+\alpha t)$, which gives the crossover in closed form and turns $\Delta\lambda$ into a slope. Applied to the Cepeda et al.\ (2008) surface, the framework reproduces the direction of growth seen in the data through 70 days, though it understates its size. At 350 days it fails twice: the surface underpredicts massed recall by a factor of more than three, and the observed ratio falls rather than rises, which points to floors, condition-specific time scales, or noise. The practical lesson is the same either way: report observed log-ratios with standard errors at stated intervals, and estimate $\Delta\lambda$ from multi-interval data, rather than reading long-delay ratios off fitted curves. Whether interleaving and contextual interference share the decay-rate signature of spacing is an open empirical question that the proposed standard is designed to answer.
 
 \section*{Code Availability}
 
-All computed values and figures are produced from the published Cepeda et al.\ (2008) parameters by \texttt{compute\_Rt\_analytical.py} and \texttt{generate\_figures.py}, and checked by \texttt{test\_model.py}, at \url{https://github.com/mike8685/retention-advantage-ratio}, archived on Zenodo (\href{https://doi.org/10.5281/zenodo.23484598}{doi:10.5281/zenodo.23484598}).
+All computed values and figures are produced from the published Cepeda et al.\ (2008) parameters by \texttt{compute\_Rt\_analytical.py} and \texttt{generate\_figures.py}, and checked by \texttt{test\_model.py}, at \url{https://github.com/mike8685/retention-advantage-ratio}, archived on Zenodo (concept DOI for all versions: \href{https://doi.org/10.5281/zenodo.23484598}{doi:10.5281/zenodo.23484598}).
 
 \section*{Changes from Version 1.0.1}
 
 \footnotesize
-Reframed the analysis around the log-ratio decomposition (Eqs.~\ref{eq:decomp}, \ref{eq:cepeda_decomp}); corrected the sign of the exponent in the crossover formula; removed the headline one-year value from the abstract and qualified all long-delay model values; removed an unsupported claim about raw massed recall at 350 days; corrected the Bahrick and Phelps (1987) cost adjustment, which previously combined two studies and ran in the wrong direction; replaced an incorrect citation (Kaplan et al., 2019) with Kim et al.\ (2019); replaced a single merged citation with the two Czy\.{z} et al.\ (2024) contextual-interference meta-analyses and moved them from the variability section; corrected the Brunmair and Richter (2019) category labels and reported their null retention-interval moderation; removed unsourced crossover ranges, an unsourced Cepeda et al.\ (2006) effect size, and an unsourced row of variability estimates; corrected confidence intervals for Donovan and Radosevich (1999) and Donoghue and Hattie (2021); corrected the Mozer et al.\ (2009) author list; corrected DOIs for Pyc and Rawson (2009) and Rohrer et al.\ (2015), which pointed to unrelated articles; added missing references (Bahrick, 1984; Hedges et al., 1999; Smith \& Vela, 2001).
+Reframed the analysis around the log-ratio decomposition (Eqs.~\ref{eq:decomp}, \ref{eq:cepeda_decomp}); corrected the sign of the exponent in the crossover formula; removed the headline one-year value from the abstract and qualified all long-delay model values; replaced an unsupported claim about raw massed recall at 350 days with the observed value and noted that the observed ratio declines between 70 and 350 days; corrected the quotation of Cepeda et al.'s optimal-gap percentages; removed the claim that interleaving in Rohrer et al.\ (2015) showed an acquisition cost and reported its non-significant interaction; restated the generality hypothesis to avoid circularity; corrected the Bahrick and Phelps (1987) cost adjustment, which previously combined two studies and ran in the wrong direction; replaced an incorrect citation (Kaplan et al., 2019) with Kim et al.\ (2019); replaced a single merged citation with the two Czy\.{z} et al.\ (2024) contextual-interference meta-analyses and moved them from the variability section; corrected the Brunmair and Richter (2019) category labels and reported their null retention-interval moderation; removed unsourced crossover ranges, an unsourced Cepeda et al.\ (2006) effect size, and an unsourced row of variability estimates; corrected confidence intervals for Donovan and Radosevich (1999) and Donoghue and Hattie (2021); corrected the Mozer et al.\ (2009) author list; corrected DOIs for Pyc and Rawson (2009) and Rohrer et al.\ (2015), which pointed to unrelated articles; added missing references (Bahrick, 1984; Hedges et al., 1999; Smith \& Vela, 2001).
 \normalsize
 
 \section*{References}
@@ -529,6 +531,6 @@ Let $\effr(t) = \max_g \effr(t;g)$ and take $t_1 < t_2$ with maximizer $g_1$ at 
 \[
 \effr(t_2) \geq \effr(t_2; g_1) > \effr(t_1; g_1) = \effr(t_1),
 \]
-so $\effr(t)$ is strictly increasing. The argument needs no assumption about the shape of recall in $g$; it uses only that each fixed-gap ratio increases with $t$. The result is a property of the fitted surface and, as Section~\ref{sec:model_v_data} shows, does not by itself establish that observed ratios keep growing at long delays.
+so $\effr(t)$ is strictly increasing whenever the maximizer at $t_1$ is a positive gap. For very short delays ($t \lesssim 0.59$ days under these parameters) the maximizer is $g = 0$ and $\effr(t) = 1$ is constant; strict increase holds beyond that point. The argument needs no assumption about the shape of recall in $g$; it uses only that each fixed-gap ratio increases with $t$. The result is a property of the fitted surface and, as Section~\ref{sec:model_v_data} shows, does not by itself establish that observed ratios keep growing at long delays.
 
 \end{document}
