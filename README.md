@@ -1,10 +1,8 @@
 # The Retention Advantage Ratio
 
-**Velle Logos Educational Research**
-
 Code and manuscript for:
 
-> Wish, M. (2025). *The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency*. Velle Logos Educational Research.
+> Wish, M. (2026). *The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency*. Preprint.
 
 ---
 
@@ -128,4 +126,4 @@ git checkout v1.0-preprint
 ## License
 
 Code: MIT License  
-Manuscript text: © Michael Wish, Velle Logos Educational Research. All rights reserved pending peer review.
+Manuscript text and figures: © Michael J. Wish, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
