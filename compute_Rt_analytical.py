@@ -255,7 +255,7 @@ ax.set_title(r'$\mathcal{R}(t)$ Computed Analytically from Cepeda et al. (2008) 
 ax.set_xlim(0, 400)
 ax.legend(loc='upper left', framealpha=0.9)
 
-fig.savefig('/home/claude/Rt_analytical.png', dpi=300)
+fig.savefig('Rt_analytical.png', dpi=300)
 plt.close()
 
 # --- Plot 2: R(t) on log scale, extended range ---
@@ -279,7 +279,7 @@ ax.set_ylabel(r'Retention Advantage Ratio $\mathcal{R}(t)$')
 ax.set_title(r'$\mathcal{R}(t)$ Over Extended Range (Log Scale)')
 ax.legend(loc='upper left', framealpha=0.9)
 
-fig.savefig('/home/claude/Rt_analytical_log.png', dpi=300)
+fig.savefig('Rt_analytical_log.png', dpi=300)
 plt.close()
 
 # --- Plot 3: Optimal gap as function of t ---
@@ -291,7 +291,7 @@ ax.set_ylabel('Optimal Spacing Gap (days)')
 ax.set_title('Optimal Gap Grows with Retention Interval')
 ax.set_xlim(0, 400)
 
-fig.savefig('/home/claude/optimal_gap.png', dpi=300)
+fig.savefig('optimal_gap.png', dpi=300)
 plt.close()
 
 # --- Plot 4: Recall surface slice ---
@@ -311,7 +311,7 @@ ax.legend(loc='upper right', framealpha=0.9)
 ax.set_xlim(0, 120)
 ax.set_ylim(0, 1.0)
 
-fig.savefig('/home/claude/model_predictions.png', dpi=300)
+fig.savefig('model_predictions.png', dpi=300)
 plt.close()
 
 print("\n" + "=" * 70)

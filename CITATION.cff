@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "The Retention Advantage Ratio: A Time-Indexed Framework for Evaluating Distributed Practice Efficiency"
+type: software
+authors:
+  - family-names: Wish
+    given-names: Michael J.
+    email: michaelj.wish@gmail.com
+repository-code: "https://github.com/mike8685/retention-advantage-ratio"
+license: MIT
+version: "1.0.1"
+date-released: "2026-10-19"
+abstract: >-
+  Code and manuscript for the retention advantage ratio R(t) = P_distributed(t) / P_blocked(t),
+  a time-indexed construct for reporting practice-distribution effects, derived analytically
+  from the published retention surface of Cepeda et al. (2008).
+keywords:
+  - spacing effect
+  - distributed practice
+  - retention interval
+  - desirable difficulties

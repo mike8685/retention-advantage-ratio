@@ -33,7 +33,10 @@ This repository contains the complete, reproducible pipeline for the paper. All 
 ├── main_rebuilt.tex          # LaTeX manuscript (two-column journal format)
 ├── generate_figures.py       # Generates all 4 figures (PDF output)
 ├── compute_Rt_analytical.py  # Standalone R(t) computation with diagnostics
+├── test_model.py             # Smoke test: independent check of headline numbers
 ├── requirements.txt          # Pinned Python dependencies
+├── CITATION.cff              # Citation metadata (used by Zenodo)
+├── LICENSE                   # MIT (code)
 └── README.md                 # This file
 ```
 
@@ -46,6 +49,8 @@ This repository contains the complete, reproducible pipeline for the paper. All 
 ```bash
 pip install -r requirements.txt
 ```
+
+The pinned versions are those used for the preprint. The scripts were also verified on newer numpy, scipy and matplotlib. Check the numbers with `python test_model.py`.
 
 ### Generate all figures
 
@@ -101,6 +106,12 @@ Figures must be generated first (see above). The `.tex` file references `figure1
 | 1 year | 23.7 | 0.034 | 0.182 | 5.35 |
 
 All values computed via continuous optimization over g ∈ [0, 500] days.
+
+---
+
+## Caveat
+
+R(1 year) = 5.35 is a model extrapolation. At 350 days the fitted surface overpredicts the ratio implied by the Cepeda et al. data (about 1.77), largely because of floor effects in the data. Read the long-horizon values as model-implied, not observed.
 
 ---
 

@@ -130,7 +130,7 @@ ax.set_ylabel('Recall Probability (%)')
 ax.set_title('Retention Crossover: Why Testing Time Matters')
 ax.set_ylim(0, 100); ax.set_xlim(0, 75)
 ax.legend(loc='upper right', framealpha=0.9)
-fig.savefig('/home/claude/figure1_crossover.pdf')
+fig.savefig('figure1_crossover.pdf')
 plt.close()
 
 
@@ -162,7 +162,7 @@ ax.text(0.03, 0.03,
         transform=ax.transAxes, fontsize=9, va='bottom',
         bbox=dict(boxstyle='round,pad=0.3', facecolor='#F5F5F5',
                   edgecolor='gray', alpha=0.9))
-fig.savefig('/home/claude/figure2_model_surface.pdf')
+fig.savefig('figure2_model_surface.pdf')
 plt.close()
 
 
@@ -213,7 +213,7 @@ ax.set_xlim(0, 400)
 ax.set_ylim(0.8, 6.0)
 ax.legend(loc='lower right', framealpha=0.9)
 
-fig.savefig('/home/claude/figure3_Rt_analytical.pdf')
+fig.savefig('figure3_Rt_analytical.pdf')
 plt.close()
 
 
@@ -265,7 +265,7 @@ ax.text(0.97, 0.05,
         bbox=dict(boxstyle='round,pad=0.3', facecolor='#FFF9C4',
                   edgecolor='#FBC02D', alpha=0.8))
 
-fig.savefig('/home/claude/figure4_model_vs_data.pdf')
+fig.savefig('figure4_model_vs_data.pdf')
 plt.close()
 
 
